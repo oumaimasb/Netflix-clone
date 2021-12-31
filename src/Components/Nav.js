@@ -18,8 +18,8 @@ function Nav() {
   console.log(navBlack);
 
   const handleClick = () => {
-    toggleMenu ? setToggleMenu(false) : setToggleMenu(true);
-  };
+    toggleMenu ? setToggleMenu(false) : setToggleMenu(true); //to put a toggler in Menu when
+  }; //------------------------------------------------the width screen is inferior to 768px (Phonescreen)
   console.log(toggleMenu);
 
   return (
