@@ -1,10 +1,10 @@
 import "./App.scss";
+import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
 
 function App() {
   return (
     <div className="App">
-      {/*navbar */}
       <Nav />
       <div className="test"></div>
       {/*banner */}
@@ -15,7 +15,7 @@ function App() {
 
       {/*quick views */}
 
-      {/*footer */}
+      <Footer />
     </div>
   );
 }
