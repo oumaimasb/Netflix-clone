@@ -4,6 +4,7 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import InfoIcon from "@material-ui/icons//Info";
 import axios from "axios";
 import requests from "../Config/Requests";
+import { Movie } from "@material-ui/icons";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
@@ -29,7 +30,7 @@ function Banner() {
   }
 
   const bannerStyle = {
-    backgroundImage: `url("https://api.themoviedb.org/3${movie.backdrop_path}")`,
+    backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
     backgroundSize: "cover",
     backgroundPositions: "center center",
   };
@@ -38,10 +39,10 @@ function Banner() {
     <header className="banner" style={bannerStyle}>
       <div className="banner-content">
         <h1 className="banner-title">
-          {movie?.title || movie?.original_title}
+          {movie.title || movie.original_title || movie.name}
         </h1>
         <p className="banner-description">
-          {truncateText(movie?.overview, 100)}
+          {truncateText(movie.overview, 100)}
         </p>
         <div className="banner-buttons">
           <button className="banner-button banner-button-play">
