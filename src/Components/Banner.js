@@ -4,9 +4,16 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import InfoIcon from "@material-ui/icons//Info";
 import axios from "axios"; // fetching data with axios
 import requests from "../Config/Requests";
+import Quickview from "./Quickview";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
+  const [popup, setPopup] = useState(false);
+
+  function handleClickPopup() {
+    popup ? setPopup(false) : setPopup(true);
+  }
+  console.log(popup);
 
   useEffect(() => {
     async function fetchData() {
@@ -27,8 +34,8 @@ function Banner() {
 
   function truncateText(string, n) {
     // we put this condition to avoid long text's desciption
-    return String?.length > n // so we limit the caractere strings to 100, else : No desciption
-      ? string.substr(0, (n = 1)) + "..."
+    return string?.length > n // so we limit the caractere strings to 100, else : No desciption
+      ? string.substr(0, n - 1) + "..."
       : "No description";
   }
   // we create this const tu put image of each movie we have in banner =>url from documentation API
@@ -46,17 +53,23 @@ function Banner() {
           {movie.title || movie.original_title || movie.name}
         </h1>
         <p className="banner-description">
-          {truncateText(movie.overview, 100)}
+          {truncateText(movie?.overview, 100)}
         </p>
         <div className="banner-buttons">
           <button className="banner-button banner-button-play">
             <PlayArrowIcon /> Lecture
           </button>
-          <button className="banner-button">
+          <button className="banner-button" onClick={handleClickPopup}>
             <InfoIcon /> Plus d'infos
           </button>
         </div>
       </div>
+      <Quickview
+        bannerStyle={bannerStyle}
+        movie={movie}
+        popup={handleClickPopup}
+        popupStatut={popup}
+      />
     </header>
   );
 }

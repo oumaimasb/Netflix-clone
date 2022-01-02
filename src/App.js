@@ -27,8 +27,6 @@ function App() {
 
       {/*videos */}
 
-      {/*quick views */}
-
       <Footer />
     </div>
   );
