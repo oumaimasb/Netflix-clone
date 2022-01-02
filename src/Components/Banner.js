@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Banner.scss";
+import { Link } from "react-router-dom";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import InfoIcon from "@material-ui/icons//Info";
 import axios from "axios"; // fetching data with axios
@@ -56,9 +57,11 @@ function Banner() {
           {truncateText(movie?.overview, 100)}
         </p>
         <div className="banner-buttons">
-          <button className="banner-button banner-button-play">
-            <PlayArrowIcon /> Lecture
-          </button>
+          <Link to={`/video/${movie?.id}`}>
+            <button className="banner-button banner-button-play">
+              <PlayArrowIcon /> Lecture
+            </button>
+          </Link>
           <button className="banner-button" onClick={handleClickPopup}>
             <InfoIcon /> Plus d'infos
           </button>

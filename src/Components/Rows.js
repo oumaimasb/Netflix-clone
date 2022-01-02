@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Rows.scss";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Rows({ title, fetchUrl, isPoster }) {
@@ -22,19 +23,21 @@ function Rows({ title, fetchUrl, isPoster }) {
       <div className="row-images">
         {movies.map((movie) => (
           <div key={movie.id}>
-            {isPoster ? (
-              <img
-                src={`${baseUrl}${movie.poster_path}`}
-                className="row-image"
-                alt={movie.title || movie.original_title || movie.name}
-              />
-            ) : (
-              <img
-                src={`${baseUrl}${movie.backdrop_path}`}
-                className="row-image"
-                alt={movie.title || movie.original_title || movie.name}
-              />
-            )}
+            <Link to={`/video/${movie?.id}`}>
+              {isPoster ? (
+                <img
+                  src={`${baseUrl}${movie.poster_path}`}
+                  className="row-image"
+                  alt={movie.title || movie.original_title || movie.name}
+                />
+              ) : (
+                <img
+                  src={`${baseUrl}${movie.backdrop_path}`}
+                  className="row-image"
+                  alt={movie.title || movie.original_title || movie.name}
+                />
+              )}
+            </Link>
           </div>
         ))}
       </div>
