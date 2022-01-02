@@ -12,6 +12,7 @@ function Banner() {
   const [popup, setPopup] = useState(false);
 
   function handleClickPopup() {
+    // To pop up / close a description
     popup ? setPopup(false) : setPopup(true);
   }
   console.log(popup);

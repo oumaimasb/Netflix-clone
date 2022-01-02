@@ -33,7 +33,7 @@ function Nav() {
       </button>
       <img
         className="nav-logo"
-        src="./Images/Netflix-logo.jpg"
+        src="./Images/Netflix-logo.png"
         width={150}
         alt=""
       />

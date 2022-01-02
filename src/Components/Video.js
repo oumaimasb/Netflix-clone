@@ -1,6 +1,6 @@
 import React from "react";
 import "./Video.scss";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 function Video() {
   //   let { id } = useParams(); ==> for a real database
