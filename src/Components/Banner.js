@@ -31,7 +31,7 @@ function Banner() {
       );
     }
     fetchData();
-  }, []);
+  }, []); // [] to stop the infinit loop of the request
   console.log(movie);
 
   function truncateText(string, n) {
